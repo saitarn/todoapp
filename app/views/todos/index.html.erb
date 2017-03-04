@@ -1,1 +1,24 @@
 <h1>TODO Index page</h1>
+
+<p>
+  <%= link_to "Create TODO", new_todo_path%> 
+</p>
+
+<table border=1>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Show</th>
+  </tr>
+
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= link_to todo.name, todo_path(todo) %></td>
+      <td><%= todo.description %></td>
+      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
+      <td><%= link_to "Show", todo_path(todo) %></td>
+    </tr>
+  <% end %>
+
+</table>
